@@ -1,12 +1,21 @@
+// db.js
 import mongoose from "mongoose";
 
-// Function to connect to database
-export const connectDB = async () => {
-    try {
-        mongoose.connection.on('connected', ()=> console.log('Database Connected'));
+let isConnected = false;
 
-        await mongoose.connect(`${process.env.MONGODB_URI}/PingMe`)
-    } catch (error) {
-        console.log(error)
-    }
-}
+export const connectDB = async () => {
+  if (isConnected) return;
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: "PingMe",
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    isConnected = true;
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+  }
+};

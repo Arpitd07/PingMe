@@ -4,7 +4,7 @@ import help_icon from "./help_icon.png";
 // import logo_icon from "./logo_icon.png";
 import logo_icon1 from "./logo_icon.png";
 // import logo_big from "./logo_big.svg";
-import pingMe from "./pingMe.jpg";
+import pingMe from "./PingMe.jpg";
 // import logo from "./logo.png";
 import logo1 from "./logo_1.png";
 import profile_richard from "./profile_richard.png";

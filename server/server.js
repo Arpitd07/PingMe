@@ -45,12 +45,11 @@ app.use("/api/status", (req, res) => res.send("Server is Live"));
 app.use("/api/auth", userRouter);
 app.use("/api/messages", messageRouter);
 
-
+await connectDB(); // Connect to Database
 if(process.env.NODE_ENV !== "production"){
   const PORT = process.env.PORT || 5000;
   server.listen(PORT, async () => {
     console.log("Server is running on PORT: " + PORT);
-    await connectDB(); // Connect to Database
   });
 }
 
